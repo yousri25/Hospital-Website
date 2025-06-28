@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>حول - مستوصف اجيم</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Cairo', Arial, sans-serif;
+        }
+        header {
+            background: #fff;
+            color: #1976d2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            border: 2px solid #1976d2;
+            border-radius: 16px;
+            margin: 24px 32px 0 32px;
+            box-shadow: 0 2px 12px rgba(25, 118, 210, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #1976d2;
+        }
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+        nav a {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+        nav a:hover {
+            color: #1565c0;
+            border-bottom: 2px solid #1976d2;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: #1976d2;
+            font-weight: 700;
+            margin: 80px 0 56px 0;
+            letter-spacing: 1px;
+        }
+        .advice-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            padding: 0 32px 60px 32px;
+            margin-bottom: 40px;
+        }
+        .advice-text {
+            flex: 1;
+            font-size: 1.25em;
+            color: #333;
+            border: 2px solid #1976d2;
+            border-radius: 14px;
+            padding: 32px 24px;
+            background: #fff;
+            max-width: 500px;
+        }
+        .advice-img {
+            flex: 1;
+            max-width: 350px;
+            border: 2px solid #1976d2;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .advice-img img {
+            width: 100%;
+            display: block;
+        }
+        footer {
+            background: #f5f5f5;
+            border-top: 2px solid #1976d2;
+            padding: 32px 0 16px 0;
+            margin-top: 40px;
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+            margin-top: 12px;
+        }
+        .footer-socials {
+            margin-top: 18px;
+        }
+        .footer-socials a {
+            color: #1976d2;
+            margin: 0 10px;
+            font-size: 1.4em;
+            text-decoration: none;
+        }
+        .footer-socials a:hover {
+            color: #1565c0;
+        }
+        @media (max-width: 900px) {
+            header {
+                margin: 16px 8px 0 8px;
+            }
+            .advice-section {
+                flex-direction: column !important;
+                gap: 32px;
+                text-align: center;
+                align-items: center;
+            }
+            .advice-text, .advice-img {
+                max-width: 100%;
+            }
+            .section-title {
+                margin: 48px 0 32px 0;
+            }
+        }
+    </style>
+    <!-- خط كايرو للعربية -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">مستوصف اجيم</div>
+        <nav>
+            <a href="index.html#home">الرئيسية</a>
+            <a href="about.html">حول</a>
+            <a href="index.html#doctors">الأطباء</a>
+            <a href="index.html#analysis">التحاليل</a>
+            <a href="index.html#location">الموقع</a>
+            <a href="index.html#contact">اتصل بنا</a>
+        </nav>
+    </header>
+
+    <div class="section-title">نصائح صحية</div>
+
+    <!-- Diabetes Section -->
+    <div class="advice-section">
+        <div class="advice-text">
+            <strong>عن داء السكري:</strong><br>
+            داء السكري هو حالة مزمنة تؤثر على كيفية تحويل الجسم للطعام إلى طاقة. إدارة السكري تتطلب تناول طعام صحي، ممارسة النشاط البدني بانتظام، مراقبة نسبة السكر في الدم، واتباع نصائح الطبيب. الاكتشاف المبكر والإدارة الصحيحة يساعدان في الوقاية من المضاعفات والعيش بصحة أفضل.
+        </div>
+        <div class="advice-img">
+            <img src="blog 1.png" alt="نصيحة عن السكري">
+        </div>
+    </div>
+
+    <!-- Vaccines Section -->
+    <div class="advice-section">
+        <div class="advice-text">
+            <strong>أهمية أخذ اللقاحات:</strong><br>
+            اللقاحات تحميك وتحمي من حولك من الأمراض الخطيرة. الالتزام بالتطعيمات يساعد في الوقاية من انتشار الأمراض ويحافظ على سلامة المجتمع. استشر طبيبك دائماً حول اللقاحات المناسبة لعمرك وحالتك الصحية.
+        </div>
+        <div class="advice-img">
+            <img src="blog 2.png" alt="نصيحة عن اللقاحات">
+        </div>
+    </div>
+
+    <!-- Hygiene Section -->
+    <div class="advice-section">
+        <div class="advice-text">
+            <strong>أهمية النظافة وتجنب العادات الصحية السيئة:</strong><br>
+            النظافة الجيدة والعادات الصحية ضرورية للوقاية من الأمراض. اغسل يديك بانتظام، واهتم بنظافتك الشخصية، وتناول طعاماً صحياً، ومارس الرياضة، وابتعد عن العادات الضارة مثل التدخين. التغييرات البسيطة تصنع فرقاً كبيراً في صحتك.
+        </div>
+        <div class="advice-img">
+            <img src="blog 3.png" alt="نصيحة عن النظافة">
+        </div>
+    </div>
+
+    <footer>
+    <div class="footer-content">
+        <!-- You can add footer content here if needed -->
+    </div>
+    <div class="footer-bottom">
+        تم التصميم والبرمجة بواسطة
+        <span style="color:#1976d2; text-decoration:underline; font-weight:600;">يسري بن حريز</span>
+        - جميع الحقوق محفوظة &copy;
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/yousri.benhariz.98" target="_blank" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@yousribenhariz1?_t=ZM-8xEKBMS5VXc&_r=1" target="_blank" title="تيك توك"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/yousribenhariz59/" target="_blank" title="إنستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.snapchat.com/add/youssri4542?share_id=wx535ZK-mGw&locale=en-US" target="_blank" title="سناب شات"><i class="fab fa-snapchat"></i></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>مستوصف اجيم</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Cairo', Arial, sans-serif;
+        }
+        header {
+            background: #fff;
+            color: #1976d2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            border: 2px solid #1976d2;
+            border-radius: 16px;
+            margin: 24px 32px 0 32px;
+            box-shadow: 0 2px 12px rgba(25, 118, 210, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #1976d2;
+        }
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+        nav a {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+        nav a:hover {
+            color: #1565c0;
+            border-bottom: 2px solid #1976d2;
+        }
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 32px 0 32px;
+            gap: 48px;
+        }
+        .home-image {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        }
+        .home-text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 500px;
+        }
+        .home-text {
+            font-size: 2.5em;
+            color: #1976d2;
+            font-weight: 700;
+        }
+        .read-more-btn {
+            display: inline-block;
+            background: #1976d2;
+            color: #fff;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 
+                background 0.3s,
+                color 0.3s,
+                transform 0.3s;
+            width: fit-content;
+        }
+        .read-more-btn:hover {
+            background: #fff;
+            color: #1976d2;
+            transform: scale(1.08);
+            border: 2px solid #1976d2;
+        }
+        .facility-title {
+            text-align: center;
+            font-size: 2em;
+            color: #1976d2;
+            font-weight: 700;
+            margin: 120px 0 56px 0;
+            letter-spacing: 1px;
+        }
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            padding: 0 32px 100px 32px;
+        }
+        .about-part {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .about-img {
+            width: 220px;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 2px solid #1976d2;
+            padding: 6px;
+            background: #fff;
+        }
+        .about-text {
+            font-size: 1.3em;
+            color: #333;
+            max-width: 500px;
+            border: 2px solid #1976d2;
+            border-radius: 12px;
+            padding: 28px 32px;
+            background: #fff;
+        }
+        .about-title {
+            font-size: 1.5em;
+            color: #1976d2;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .about-part.reverse {
+            flex-direction: row-reverse;
+        }
+        /* Doctors Section */
+        .doctors-title {
+            text-align: center;
+            font-size: 2em;
+            color: #1976d2;
+            font-weight: 700;
+            margin: 120px 0 56px 0;
+            letter-spacing: 1px;
+        }
+        .doctors-section {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 0 32px 100px 32px;
+        }
+        .doctor-card {
+            background: #fff;
+            border: 2px solid #1976d2;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.07);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 28px 28px 28px;
+            width: 270px;
+        }
+        .doctor-card:nth-child(1) {
+            height: 420px;
+        }
+        .doctor-card:nth-child(2) {
+            height: 390px;
+        }
+        .doctor-card:nth-child(3) {
+            height: 440px;
+        }
+        .doctor-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #1976d2;
+            margin-bottom: 18px;
+        }
+        .doctor-name {
+            font-size: 1.3em;
+            color: #1976d2;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .doctor-contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 1em;
+            color: #333;
+        }
+        .doctor-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 6px;
+        }
+        .doctor-socials a {
+            color: #1976d2;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .doctor-socials a:hover {
+            color: #1565c0;
+        }
+        /* Analysis Section */
+        .analysis-title {
+            text-align: center;
+            font-size: 2em;
+            color: #1976d2;
+            font-weight: 700;
+            margin: 120px 0 40px 0;
+            letter-spacing: 1px;
+        }
+        .analysis-section {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 100px;
+        }
+        .analysis-section table {
+            border-collapse: collapse;
+            min-width: 700px;
+            font-size: 1.15em;
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(25,118,210,0.07);
+        }
+        .analysis-section th, .analysis-section td {
+            text-align: left;
+        }
+        .analysis-section th {
+            padding: 18px 32px;
+            background: #1976d2;
+            color: #fff;
+            border-right: 1px solid #fff;
+        }
+        .analysis-section th:last-child {
+            border-right: none;
+        }
+        .analysis-section td {
+            padding: 16px 32px;
+            border-bottom: 1px solid #e3e3e3;
+        }
+        .analysis-section tr:last-child td {
+            border-bottom: none;
+        }
+        .analysis-section td.available {
+            color: #1976d2;
+            font-weight: 600;
+        }
+        .analysis-section td.not-available {
+            color: #c62828;
+            font-weight: 600;
+        }
+        /* Location Section */
+        .location-title {
+            text-align: center;
+            font-size: 2em;
+            color: #1976d2;
+            font-weight: 700;
+            margin: 120px 0 56px 0;
+            letter-spacing: 1px;
+        }
+        .location-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            padding-bottom: 100px;
+        }
+        .location-map {
+            flex: 1;
+            min-width: 320px;
+            max-width: 600px;
+            border: 2px solid #1976d2;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .location-text {
+            flex: 1;
+            max-width: 350px;
+            font-size: 1.2em;
+            color: #333;
+            border: 2px solid #1976d2;
+            border-radius: 14px;
+            padding: 32px 24px;
+            background: #fff;
+        }
+        /* Contact Section */
+        .contact-title {
+            text-align: center;
+            font-size: 2em;
+            color: #1976d2;
+            font-weight: 700;
+            margin: 120px 0 16px 0;
+            letter-spacing: 1px;
+        }
+        .contact-desc {
+            text-align: center;
+            font-size: 1.15em;
+            color: #333;
+            margin-bottom: 48px;
+        }
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 48px;
+            padding-bottom: 100px;
+        }
+        .contact-img {
+            flex: 1;
+            max-width: 350px;
+            border: 2px solid #1976d2;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .contact-img img {
+            width: 100%;
+            display: block;
+        }
+        .contact-form {
+            flex: 1;
+            max-width: 400px;
+            border: 2px solid #1976d2;
+            border-radius: 14px;
+            padding: 32px 24px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        .contact-form textarea {
+            resize: vertical;
+        }
+        .contact-form button {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background: #125ea2;
+        }
+        /* Footer */
+        footer {
+            background: #f5f5f5;
+            border-top: 2px solid #1976d2;
+            padding:  32px 0px 16px 0;
+            margin-top: 40px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #888;
+            font-size: 1em;
+            margin-top: 12px;
+            padding-top: 0px;
+            border-top: none;
+        }
+        .footer-socials {
+            margin-top: 18px;
+            text-align: center;
+        }
+        .footer-socials a {
+            color: #1976d2;
+            margin: 0 10px;
+            font-size: 1.4em;
+            text-decoration: none;
+        }
+        .footer-socials a:hover {
+            color: #1565c0;
+        }
+        @media (max-width: 1100px) {
+            .doctors-section {
+                gap: 24px;
+            }
+            .doctor-card {
+                width: 220px;
+                padding: 24px 12px 20px 12px;
+            }
+            .analysis-section table {
+                min-width: 400px;
+            }
+        }
+        @media (max-width: 900px) {
+            header {
+                margin: 16px 8px 0 8px;
+            }
+            .home-content, .about-part, .about-part.reverse, .doctors-section, .location-section, .contact-section {
+                flex-direction: column !important;
+                gap: 32px;
+                text-align: center;
+                align-items: center;
+            }
+            .about-section {
+                padding: 0 8px 60px 8px;
+            }
+            .about-text {
+                max-width: 100%;
+            }
+            .facility-title, .doctors-title, .analysis-title, .location-title, .contact-title {
+                margin: 80px 0 36px 0;
+            }
+            .doctor-card {
+                width: 90vw;
+                max-width: 340px;
+            }
+            .location-map, .location-text, .contact-img, .contact-form {
+                max-width: 100%;
+            }
+            .analysis-section table {
+                min-width: 0;
+                width: 100%;
+                font-size: 1em;
+            }
+        }
+        #formMessage {
+            margin-top: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            padding: 12px;
+            display: none;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+    <!-- خط كايرو للعربية -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">مستوصف اجيم</div>
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#about">حول</a>
+            <a href="#doctors">الأطباء</a>
+            <a href="#analysis">التحاليل</a>
+            <a href="#location">الموقع</a>
+            <a href="#contact">اتصل بنا</a>
+        </nav>
+    </header>
+    <div id="home" class="home-content">
+        <img src="home.png" alt="مستوصف اجيم" class="home-image">
+        <div class="home-text-group">
+            <div class="home-text">
+                ابق آمناً وبصحة جيدة.<br>راحتك وصحتك هي أولويتنا.
+            </div>
+            <a href="about.html" class="read-more-btn">اقرأ المزيد</a>
+        </div>
+    </div>
+    <div id="about" class="facility-title">
+        حول منشأتنا
+    </div>
+    <div class="about-section">
+        <div class="about-part">
+            <img src="about-1.png" alt="خدمة الإسعاف" class="about-img">
+            <div class="about-text">
+                <div class="about-title">خدمة الإسعاف</div>
+                خدمات إسعاف سريعة وموثوقة متوفرة على مدار الساعة لضمان حصولك على الرعاية الطبية الفورية عند الحاجة.
+            </div>
+        </div>
+        <div class="about-part reverse">
+            <img src="about-2.png" alt="غرف الطوارئ" class="about-img">
+            <div class="about-text">
+                <div class="about-title">غرف الطوارئ</div>
+                غرف الطوارئ الحديثة لدينا مجهزة للتعامل مع جميع أنواع الحالات الطارئة مع طاقم طبي مدرب دائماً على أهبة الاستعداد.
+            </div>
+        </div>
+        <div class="about-part">
+            <img src="about-3.png" alt="فحص مجاني" class="about-img">
+            <div class="about-text">
+                <div class="about-title">خدمة الفحص المجاني</div>
+                نقدم فحوصات صحية مجانية لتعزيز صحة المجتمع والكشف المبكر عن الأمراض للجميع.
+            </div>
+        </div>
+    </div>
+    <div id="doctors" class="doctors-title">
+        أطباؤنا
+    </div>
+    <div class="doctors-section">
+        <!-- Doctor 1 -->
+        <div class="doctor-card">
+            <img src="doctor-1.jpg" alt="الدكتور 1" class="doctor-img">
+            <div class="doctor-name">د. سارة جونسون</div>
+            <div class="doctor-contacts">
+                <div><i class="fa fa-phone"></i> +1 555-123-4567</div>
+                <div class="doctor-socials">
+                    <a href="#" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="انستغرام"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Doctor 2 -->
+        <div class="doctor-card">
+            <img src="doctor-2.jpg" alt="الدكتور 2" class="doctor-img">
+            <div class="doctor-name">د. مايكل لي</div>
+            <div class="doctor-contacts">
+                <div><i class="fa fa-phone"></i> +1 555-987-6543</div>
+                <div class="doctor-socials">
+                    <a href="#" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="لينكدإن"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Doctor 3 -->
+        <div class="doctor-card">
+            <img src="doctor-3.jpg" alt="الدكتور 3" class="doctor-img">
+            <div class="doctor-name">د. إيميلي سميث</div>
+            <div class="doctor-contacts">
+                <div><i class="fa fa-phone"></i> +1 555-222-3344</div>
+                <div class="doctor-socials">
+                    <a href="#" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="انستغرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="لينكدإن"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="analysis" class="analysis-title">
+        تحاليل  الأسبوع
+    </div>
+    <div class="analysis-section">
+        <table>
+            <thead>
+                <tr>
+                    <th>اليوم</th>
+                    <th>الوقت</th>
+                    <th>التحاليل متوفرة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>الاثنين</td>
+                    <td>8:00 ص - 4:00 م</td>
+                    <td class="available">متوفرة</td>
+                </tr>
+                <tr>
+                    <td>الثلاثاء</td>
+                    <td>8:00 ص - 4:00 م</td>
+                    <td class="available">متوفرة</td>
+                </tr>
+                <tr>
+                    <td>الأربعاء</td>
+                    <td>8:00 ص - 4:00 م</td>
+                    <td class="available">متوفرة</td>
+                </tr>
+                <tr>
+                    <td>الخميس</td>
+                    <td>8:00 ص - 4:00 م</td>
+                    <td class="available">متوفرة</td>
+                </tr>
+                <tr>
+                    <td>الجمعة</td>
+                    <td>8:00 ص - 2:00 م</td>
+                    <td class="available">متوفرة</td>
+                </tr>
+                <tr>
+                    <td>السبت</td>
+                    <td>8:00 ص - 2:00 م</td>
+                    <td class="available">متوفرة</td>
+                </tr>
+                <tr>
+                    <td>الأحد</td>
+                    <td>مغلق</td>
+                    <td class="not-available">غير متوفرة</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="location" class="location-title">
+        موقعنا
+    </div>
+    <div class="location-section">
+        <div class="location-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d207.3882665244455!2d10.759288134501055!3d33.72932689874658!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13aab7be1e4c5f3b%3A0x80fade54efd01544!2zRGlzcGVuc2FpcmUgTW9oZW1lZCBIY2luZSDZhdiz2KrZiNi12YEg2YXYrdmF2K8g2K3Ys9mK2YY!5e0!3m2!1sar!2stn!4v1750005392289!5m2!1sar!2stn"
+                width="100%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="location-text">
+            نحن في قلب المدينة، يسهل الوصول إلينا لتلبية جميع احتياجاتكم الصحية.<br>
+            زورونا للحصول على رعاية وخدمات صحية مميزة.
+        </div>
+    </div>
+    <div id="contact" class="contact-title">
+        اتصل بنا
+    </div>
+    <div class="contact-desc">
+        يمكنك التواصل معنا في أي وقت
+    </div>
+    <div class="contact-section">
+        <div class="contact-img">
+            <img src="form.png" alt="نموذج الاتصال">
+        </div>
+        
+        <form id="consultationForm" class="contact-form">
+            <input type="text" id="first_name" name="first_name" placeholder="Prénom / الاسم" required>
+            <input type="text" id="last_name" name="last_name" placeholder="Nom / اللقب" required>
+            <input type="tel" id="phone" name="phone" placeholder="Téléphone / رقم الهاتف" required>
+            <textarea name="message" placeholder="Message / رسالتك" required></textarea>
+            <div id="formMessage" style="display: none;"></div>
+            <button type="submit">Envoyer / إرسال</button>
+        </form>
+    </div>
+    <footer>
+    <div class="footer-content">
+        <!-- You can add footer content here if needed -->
+    </div>
+    <div class="footer-bottom">
+        تم التصميم والبرمجة بواسطة
+        <span style="color:#1976d2; text-decoration:underline; font-weight:600;">يسري بن حريز</span>
+        - جميع الحقوق محفوظة &copy;
+        <div class="footer-socials">
+            <a href="https://www.facebook.com/yousri.benhariz.98" target="_blank" title="فيسبوك"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@yousribenhariz1?_t=ZM-8xEKBMS5VXc&_r=1" target="_blank" title="تيك توك"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/yousribenhariz59/" target="_blank" title="إنستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.snapchat.com/add/youssri4542?share_id=wx535ZK-mGw&locale=en-US" target="_blank" title="سناب شات"><i class="fab fa-snapchat"></i></a>
+        </div>
+    </div>
+</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Bilingual messages
+    const messages = {
+        nameError: {
+            fr: "Les champs de nom ne doivent contenir que des lettres, espaces, traits d'union ou apostrophes.",
+            ar: "يجب أن تحتوي حقول الاسم على أحرف فقط، مسافات، شرطات أو فواصل علوية."
+        },
+        phoneError: {
+            fr: "Le numéro de téléphone ne doit contenir que des chiffres et un + optionnel au début.",
+            ar: "يجب أن يحتوي رقم الهاتف على أرقام فقط و + اختياري في البداية."
+        },
+        requiredFields: {
+            fr: "Veuillez remplir tous les champs obligatoires.",
+            ar: "يرجى ملء جميع الحقول المطلوبة."
+        },
+        submitError: {
+            fr: "Échec de l'envoi. Veuillez réessayer.",
+            ar: "فشل الإرسال. يرجى المحاولة مرة أخرى."
+        }
+    };
+
+    function isValidName(str) {
+        // Allow Arabic, English letters, spaces, hyphens, and apostrophes
+        const regex = /^[\u0600-\u06FFa-zA-Z\s'-]+$/;
+        return regex.test(str);
+    }
+    
+    function isValidPhone(str) {
+        // Allow numbers and optional + at start
+        const regex = /^\+?\d+$/;
+        return regex.test(str);
+    }
+    
+    function showMessage(message, type) {
+        const messageDiv = document.getElementById("formMessage");
+        messageDiv.textContent = message;
+        messageDiv.className = type + "-message";
+        messageDiv.style.display = "block";
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            messageDiv.style.display = "none";
+        }, 5000);
+    }
+    
+    document.getElementById("consultationForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+        
+        const firstName = document.getElementById("first_name").value.trim();
+        const lastName = document.getElementById("last_name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const message = document.querySelector("textarea[name='message']").value.trim();
+        const messageDiv = document.getElementById("formMessage");
+        
+        // Clear previous messages
+        messageDiv.style.display = "none";
+        
+        // Validate inputs
+        if (!firstName || !lastName || !phone || !message) {
+            showMessage(messages.requiredFields.fr + " / " + messages.requiredFields.ar, "error");
+            return;
+        }
+        
+        if (!isValidName(firstName)) {
+            showMessage(messages.nameError.fr + " / " + messages.nameError.ar, "error");
+            return;
+        }
+        
+        if (!isValidName(lastName)) {
+            showMessage(messages.nameError.fr + " / " + messages.nameError.ar, "error");
+            return;
+        }
+        
+        if (!isValidPhone(phone)) {
+            showMessage(messages.phoneError.fr + " / " + messages.phoneError.ar, "error");
+            return;
+        }
+        
+        try {
+            const response = await fetch("save_consultation.php", {
+                method: "POST",
+                body: new FormData(this)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showMessage(result.message, "success");
+                this.reset();
+            } else {
+                showMessage(result.message || (messages.submitError.fr + " / " + messages.submitError.ar), "error");
+            }
+        } catch(error) {
+            showMessage(messages.submitError.fr + " / " + messages.submitError.ar, "error");
+            console.error("Submission error:", error);
+        }
+    });
+});
+    </script>
+</body>
+</html>
